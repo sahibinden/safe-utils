@@ -67,5 +67,5 @@ angular.module('sahibinden.countdown', [])
                     $timeout.cancel(timerId);
                 });
             }
-        };
+        }];
     }]);
