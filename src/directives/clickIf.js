@@ -24,7 +24,7 @@ angular.module('sahibinden.clickIf', [])
 
         return {
             restrict: 'A',
-            controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
+            controller: function ($scope, $element, $attrs) {
                 $attrs.$observe('clickIf', function (condition) {
                     if (condition === 'true' || condition === true) {
                         $timeout(function () {
@@ -32,6 +32,6 @@ angular.module('sahibinden.clickIf', [])
                         }, 0);
                     }
                 });
-            }]
+            }
         };
     }]);

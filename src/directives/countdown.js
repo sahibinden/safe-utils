@@ -24,7 +24,7 @@ angular.module('sahibinden.countdown', [])
         return {
             restrict: 'A',
             scope: true,
-            link: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
+            link: function ($scope, $element, $attrs) {
                 var toDateValue = $attrs.toDate,
                     toDate = toDateValue ? new Date(toDateValue) : new Date(),
 
