@@ -44,7 +44,7 @@
                     '<div class="dialog-content {{ extraClass }}" ng-class="{dialogEffect: visible}">' +
                         '<div>' +
                             '<a ng-hide="nonClosable" class="dialog-close" dialog-closer>close</a>' +
-                            '<h3 ng-show="title">{{ title }}</h3>' +
+                            '<h3 ng-show="title" ng-bind-html="title | maketrusted"></h3>' +
                             '<section ng-transclude></section>' +
                         '</div>' +
                     '</div>' +
