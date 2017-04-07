@@ -39,9 +39,9 @@
                     onClose: '&',
                     nonClosable: '='
                 },
-                template: '<div ng-class="{hidden: !visible}">' +
-                    '<div class="overlay" dialog-closer></div>' +
-                    '<div class="dialog-content {{ extraClass }}" ng-class="{dialogEffect: visible}">' +
+                template: '<div ng-class="{hidden: !visible}" data-title="">' +
+                    '<div ng-hide="nonClosable" class="popup-overlay" dialog-closer></div>' +
+                    '<div ng-show="nonClosable" class="popup-overlay"></div>' +
                         '<div>' +
                             '<a ng-hide="nonClosable" class="dialog-close" dialog-closer>close</a>' +
                             '<h3 ng-show="title" ng-bind-html="title | maketrusted"></h3>' +
@@ -74,10 +74,9 @@
                 };
 
             this.closeDialog = function () {
-                if (!$scope.nonClosable) {
-                    $scope.visible = false;
-                    $scope.onClose();
-                }
+                $scope.visible = false;
+                $scope.onClose();
+                $scope.$digest();
             };
 
             $scope.$watch('visible', function (visible) {
